@@ -18,9 +18,21 @@ variable "default_zone" {
   default     = "ru-central1-a"
   description = "https://cloud.yandex.ru/docs/overview/concepts/geo-scope"
 }
+
+variable "default_zone_b" {
+  type        = string
+  default     = "ru-central1-b"
+  description = "https://cloud.yandex.ru/docs/overview/concepts/geo-scope"
+}
 variable "default_cidr" {
   type        = list(string)
   default     = ["10.0.1.0/24"]
+  description = "https://cloud.yandex.ru/docs/vpc/operations/subnet-create"
+}
+
+variable "default_cidr_b" {
+  type        = list(string)
+  default     = ["10.0.2.0/24"]
   description = "https://cloud.yandex.ru/docs/vpc/operations/subnet-create"
 }
 
@@ -30,52 +42,10 @@ variable "vpc_name" {
   description = "VPC network & subnet name"
 }
 
-variable "vm_web_family" {
+variable "vpc_name_b" {
   type        = string
-  default     = "ubuntu-2004-lts"
-  description = "Yandex compute image family"
-}
-
-variable "vm_web_name" {
-  type        = string
-  default     = "netology-develop-platform-web"
-  description = "Yandex compute VM name"
-}
-
-variable "vm_web_platform_id" {
-  type        = string
-  default     = "standard-v2"
-  description = "Yandex compute VM platform id"
-}
-
-variable "vm_web_cores" {
-  type        = number
-  default     = 2
-  description = "Yandex compute VM cores"
-}
-
-variable "vm_web_memory" {
-  type        = number
-  default     = 1
-  description = "Yandex compute VM memory"
-}
-
-variable "vm_web_core_fraction" {
-  type        = number
-  default     = 5
-  description = "Yandex compute VM core_fraction"
-}
-
-variable "vm_web_preemptible" {
-  type        = bool
-  default     = true
-  description = "Yandex compute VM preemptible"
-}
-
-variable "vm_web_nat" {
-  type        = bool
-  default     = true
-  description = "Yandex compute VM nat"
+  default     = "develop-b"
+  description = "subnet-b name"
 }
 
 ###ssh vars
