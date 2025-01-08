@@ -16,23 +16,23 @@ variable "vm_web_platform_id" {
   description = "Yandex compute VM platform id"
 }
 
-variable "vm_web_cores" {
-  type        = number
-  default     = 2
-  description = "Yandex compute VM cores"
-}
+# variable "vm_web_cores" {
+#   type        = number
+#   default     = 2
+#   description = "Yandex compute VM cores"
+# }
 
-variable "vm_web_memory" {
-  type        = number
-  default     = 1
-  description = "Yandex compute VM memory"
-}
+# variable "vm_web_memory" {
+#   type        = number
+#   default     = 1
+#   description = "Yandex compute VM memory"
+# }
 
-variable "vm_web_core_fraction" {
-  type        = number
-  default     = 5
-  description = "Yandex compute VM core_fraction"
-}
+# variable "vm_web_core_fraction" {
+#   type        = number
+#   default     = 5
+#   description = "Yandex compute VM core_fraction"
+#}
 
 variable "vm_web_preemptible" {
   type        = bool
@@ -65,23 +65,23 @@ variable "vm_db_platform_id" {
   description = "Yandex compute VM platform id"
 }
 
-variable "vm_db_cores" {
-  type        = number
-  default     = 2
-  description = "Yandex compute VM cores DB"
-}
+# variable "vm_db_cores" {
+#   type        = number
+#   default     = 2
+#   description = "Yandex compute VM cores DB"
+# }
 
-variable "vm_db_memory" {
-  type        = number
-  default     = 2
-  description = "Yandex compute VM memory DB"
-}
+# variable "vm_db_memory" {
+#   type        = number
+#   default     = 2
+#   description = "Yandex compute VM memory DB"
+# }
 
-variable "vm_db_core_fraction" {
-  type        = number
-  default     = 20
-  description = "Yandex compute VM core_fraction"
-}
+# variable "vm_db_core_fraction" {
+#   type        = number
+#   default     = 20
+#   description = "Yandex compute VM core_fraction"
+# }
 
 variable "vm_db_preemptible" {
   type        = bool
@@ -106,3 +106,24 @@ variable "instance_db_name" {
   default     = "platform-db"
   description = "Yandex compute instance name DB"
 }
+
+variable "vms_resources" {
+    type = map (object({
+        cores  = number
+        memory = number
+        core_fraction = number
+    }))
+    default = {
+        web={
+            cores=2
+            memory=1
+            core_fraction=5   
+        }
+        db= {
+            cores=2
+            memory=2
+            core_fraction=20
+        }
+    }    
+}
+

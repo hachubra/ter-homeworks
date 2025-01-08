@@ -50,8 +50,21 @@ variable "vpc_name_b" {
 
 ###ssh vars
 
-variable "vms_ssh_root_key" {
-  type        = string
-  default     = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJLT8e71AST0K2bcmvup2ZiGEHjpNSOoE6pxmeX/DdCH alex@ubu04"
-  description = "ssh-keygen -t ed25519"
+# variable "vms_ssh_root_key" {
+#   type        = string
+#   default     = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJLT8e71AST0K2bcmvup2ZiGEHjpNSOoE6pxmeX/DdCH alex@ubu04"
+#   description = "ssh-keygen -t ed25519"
+# }
+
+variable "metadata" {
+    type = map (object({
+        ssh_key  = string
+        serial_port = number
+    }))
+    default = {
+        all={
+            ssh_key="ubuntu:ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJLT8e71AST0K2bcmvup2ZiGEHjpNSOoE6pxmeX/DdCH alex@ubu04"
+            serial_port=1
+        }
+    }    
 }
